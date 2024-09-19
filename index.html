@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Avinash</title>
+
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/elements.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- <link rel="stylesheet" href="css/font-awesome.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <ul class="header-nav">
+                <li>
+                    <span class="link" data-goto="about">Meet Me</span>
+                </li>
+                <li>
+                    <span class="link" data-goto="resume">Resume</span>
+                </li>
+                <li>
+                    <span class="link" data-goto="coursework">Coursework</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="header-right">
+            <span style="font-size: 40px; font-weight: 300;">{{</span>
+            <span style="font-family: 'Convergence'; line-height: 10px; font-size: 20px;">hello.world</span>
+            <span style=" font-size: 40px; font-weight: 300; ">}}</span>
+        </div>
+    </div>
+
+    <div class="container-heading " id="meetme ">
+
+        <div class="container-heading-avatar ">
+            <img src="includes/images/avatar.png ">
+        </div>
+
+        <div class="container-heading-content ">
+            <h1>Avinash Kumar</h1>
+
+            A Software Developer by day
+            <br><b>Security Enthusiast</b> by night
+
+            <a href="https://www.github.com/im4vk " class="github-button ">Fork me on GitHub</a>
+        </div>
+
+    </div>
+
+    <div style="background-color: white ; z-index: 2; position: relative; ">
+
+        <div class="break break-green" id="about">
+            <h1>ABOUT ME</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="middle-text " style="margin-bottom: 60px; ">
+                Hello! You can call me Avi, or the King of Pirates Avinash D. Avi :)
+                <br><br>
+                I am a Minor Graduate in the Computer Science & Engineering and Major in Mechanical Engineering from Indian Institute
+                of Technology, Kanpur (IITK). My broad interests primarily lie in the field of Machine Learning, Security and Backend Engineering.
+                <br><br>
+                In case you are looking for some learnings, visit my
+                <a href="https://www.youtube.com/@iitianka14" target="_blank">Youtube</a> channel
+                <br> or connect with me on any social networking site.
+            </div>
+
+            <div id="contact">
+                <div class="contact-social-block">
+                    <a href="https://www.linkedin.com/in/im4vk" target="_blank">
+                        <!-- <img src="includes/images/linkedin.png"> -->
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </div>
+                <div class="contact-profile-block">
+                    <img src="includes/images/profile.jpg">
+                </div>
+                <div class="contact-social-block">
+                    <a href="https://www.github.com/im4vk" target="_blank">
+                        <!-- <img src="includes/images/github.ico"> -->
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="middle-text">
+
+            </div>
+        </div>
+
+        <div class="break break-green" id="resume">
+            <h1>RESUME</h1>
+        </div>
+
+        <div class="container resume">
+            <div class="middle-text">
+                My resume can be downloaded from
+                <a href="includes/files/resume.pdf">here</a>.
+                <!-- The latex files are uploaded on
+                <a href="https://github.com/fat-fighter/resume">my github</a>. -->
+            </div>
+
+            <h2>SKILLS</h2>
+            <div id="skills"></div>
+
+            <h2>Professional Experience</h2>
+
+            <div id="experiences">
+                <div class="project">
+                    <div class="name">
+                        Samsung Research Institute, Bangalore
+                        <br><div class="position">Backend Software Engineer II</div>
+                    </div>
+                    <div class="time">
+                        Mar 2023 - Sep 2024
+                    </div>
+                    <br><br>
+                    <!-- <div class="objective" style="padding-left: 20px;">
+                        <ol>
+                            <li>Introduce changes in existing models for asset liability gap management for deposits
+                                and clearing house initial margin, and</li>
+
+                            <li>Build a lite calculator for customer margin allocation for proper internalization</li>
+                        </ol>
+                    </div> -->
+                    <ul>
+                        <li>Implemented secure server-side certificate provisioning and key management by verifying EKCert and IDBinding with nonce
+                            and signature, creating and signing CSRs, and integrating Key Attestation with nonce2 and CSRs for encrypted
+                            communication and secure TPM and AWS storage</li>
+                            <li>    Engineered a revolutionary Message service by using authentication method to transmit critical communications from
+                            Blackboard server to Devices</li>
+                            <li> Optimized Build Time of Message service from 10 minutes to under 4 minutes and upgraded to latest artemis version.
+                            Added Load Testing for connecting Multiple Devices at multiple Intervals</li>
+                            <li> Added Multiple APIs that performs connect using token based authentication along with other operations in Membership
+                            service (Service used to connect multiple devices with same SA Account and share data with proper security)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="name">
+                        <div class="position">Security Software Engineer II</div>
+                    </div>
+                    <br>
+                    
+                    <ul>
+                        <li>Led Red Team activities including penetration testing on phones and TVs, and successfully executed bounties and Capture
+                            The Flag (CTF) competitions on online platforms, identifying critical vulnerabilities</li>
+                            <li> Developed and implemented a Windows TPM security framework while leading a team of four engineers to provision
+                            signed certificates locally, ensuring cryptographic operations remain secure via TPM, and thus reducing security breaches</li>
+                            <li> Integrated Trusted Apps (TAs) on Android devices, securing key communication channels within the Trusted Execution
+                            Environment (TEE) and protecting sensitive information from unauthorized access</li>
+                            <li> Pioneered virtualization for Android security by building and testing secure OP-TEE on Android Virtualization Framework
+                            (AVF), decreasing threats to applications running on AVF by 30%</li>
+                            <li> Built and enabled TEE of 3 major chipsets - Qualcomm, TEEgris and UniSoc for Headquarter office in Korea
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="name">
+                        PayPal, Bangalore
+                        <br><div class="position">Backend Software Engineer</div>
+                    </div>
+                    <div class="time">
+                        Aug 2021 - Mar 2023
+                    </div>
+                    <br><br>
+                    <ul>
+                        <li>Spearheaded the migration of chatbots from IBM Watson to Google Dialog Flow, seamlessly handling both IVR and chat
+                            systems for 10+ major locales, improving customer support efficiency</li>
+                            <li> Developed a Neo4j-based tool for visualizing and optimizing complex legacy workflows, streamlining the migration to
+                            Google Dialog Flow and reducing manual effort by 25%</li>
+                            <li> Created a new version of Chat-Simulator, integrating an automated Cypress tool to execute test cases, significantly
+                            accelerating the testing process and improving efficiency by 40%, ensuring high reliability in production</li>
+                            <li> Redesigned the Google Dialog Flow architecture and integrated it with in-house NLP, reducing dependency on third-party
+                            NLP services and cutting costs by 15%</li>
+                            <li> Built a real-time dashboard on Looker to monitor chatbot traffic, reducing data latency from 48 hours to just 1 hour,
+                            enabling faster decision-making and improved performance tracking</li>
+                            <li> Leveraged TFIDF algorithms to analyze raw WSDL text to predict CRUD operation type, then formulated REST API requests
+                            and responses using the Spring-Boot framework, enabling seamless integration of legacy WSDL services into modern
+                            RESTful architectures for improved consumption and scalability
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="name">
+                        <div class="position">Security Software Engineer</div>
+                    </div>
+                    <br>
+                    <ul>
+                        <li>Conducted comprehensive security tests on the migrated Google Dialog Flow (GDF) architecture, identifying and mitigating
+                            vulnerabilities, threats, and edge case failures within the chatbot system, ensuring secure data handling and reducing system
+                            downtime by 15% </li> 
+                            <li> Ranked in the top 1% among participants in the cmd+ctrl 2-day hackathon, completing all 48 challenges and demonstrating
+                            strong problem-solving skills in various security scenarios.</li>
+                            
+                    </ul>
+                </div>
+                <div class="project">
+                    <div class="name">
+                        EXL Services, Gurgaon
+                        <br><div class="position">Backend Data Analyst II</div>
+                    </div>
+                    <div class="time">
+                        Sep 2019 - Aug 2021
+                    </div>
+                    <br><br>
+                    <ul>
+                        <li>Applied advanced data analytics techniques, such as Entropy Balancing in R and Python, to test and validate hypotheses,
+                            driving data-driven decision-making for clients</li>
+                            <li> Developed and automated web scraping solutions using Selenium, enabling clients to efficiently download large data sets
+                            and files, saving hours of manual work weekly</li>
+                            <li> Utilized text mining and sentiment analysis to tailor customer communications, resulting in a 20% increase in response
+                            rates and improved customer satisfaction</li>
+                            <li> Led analytics on marketing campaigns, leading to a 17% increase in client conversions through data-driven optimizations
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="name">
+                        <div class="position">Security Data Analyst II</div>
+                    </div>
+                    <br>
+                    <ul>
+                        <li>
+                            Developed and automated an encryption tool using VBA to securely store and manage personal customer information,
+                            ensuring compliance with data protection regulations and reducing data breaches by 25%</li>
+                        <li>    Enhanced data storage security protocols by integrating advanced encryption algorithms, resulting in faster and more
+                            secure storage of sensitive customer data for clients
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>PROJECTS</h2>
+
+            <div id="projects">
+                <!-- <h3>Machine Learning</h3> -->
+
+                <div class="project">
+                    <div class="name">
+                        RUST Operating System
+
+                        <div class="links">
+                            <!-- <a target="_blank" href="includes/files/dvgae.pdf">
+                                <i class="far fa-file-pdf icon-large"></i>
+                                Report
+                            </a> -->
+
+                            <a target="_blank" href="https://github.com/im4vk/OSinRust" style="font-style: italic;">
+                                <i class="fa fa-github icon-large"></i>
+                                Github
+                            </a>
+                        </div>
+                    </div>
+                    <!-- <div class="time">
+                        Fall 2018 (Ongoing)
+                    </div>
+                    <div class="supervisor">
+                        Prof. Piyush Rai
+                    </div> -->
+                    <ul>
+                        <li>A BareMetal operating system that can boot off of a USB stick on any BIOS-compatible machine like the QEMU emulator</li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="name">
+                        Full Stack Web Development
+
+                        <div class="links">
+                            <a target="_blank" href="https://sheriffinc.com/" style="font-style: italic;">
+                                <i class="fa fa-link icon-large"></i>
+                                Website
+                            </a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Collaborating with H.C. Verma and Team, established an interactive and responsive front end of the website that handles a
+                        traffic of around 100K+ registrations. Implemented CRUD operations and API integration</li>
+                        <li>Migrating a live WordPress website to MERN stack, since adding new features was not easy. On the Website, customers raise
+                        tickets for law related queries, a lawyer is assigned, or a response is given, and once the issue is solved, the ticket is closed.
+                        Traffic is between 500-1500, with a satisfaction of around 70%
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="name">
+                        Programming Language
+
+                        <div class="links">
+                            <a target="_blank" href="https://github.com/im4vk/CustomTranspiler"   style="font-style: italic;">
+                                <i class="fa fa-github icon-large"></i>
+                                Github
+                            </a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Developed a language Transpiler which takes a language file ending with .gf extension as input, creates a parse tree out of it,
+                            transpiles this tree into JavaScript code, finally compiling JavaScript and producing output. Language supports variable
+                            operations, nested conditionals and loops, along with code commenting and error handling</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="break break-green" id="coursework">
+            <h1>COURSEWORK</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="middle-text">
+                I have compiled all resources (such as lecture notes, solved assignments, exam papers, etc.) for most
+                of the courses I have undertaken since the sophomore year.
+                <!-- <a href="https://github.com/fat-fighter/iitk-courses">here</a> -->
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>Course</td>
+                        <td>Name</td>
+                        <td>Semester/Source</td>
+                        <td>Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ESC101</td>
+                        <td>Fundamentals of Computing</td>
+                        <td class="field-center">I</td>
+                        <td>Concepts of Programming in C, along with basic Data Structures and Algorithms</td>
+                    </tr>
+                    <tr>
+                        <td>MTH102</td>
+                        <td>Linear Algebra</td>
+                        <td class="field-center">II</td>
+                        <td>Basic concepts of linear algebra with a deeper insight into Eigen Vectors and Eigen Values</td>
+                    </tr>
+                    <tr>
+                        <td>CS201</td>
+                        <td>Discrete Mathematics</td>
+                        <td class="field-center">III</td>
+                        <td>Introduction to Proofs, Combinatorics, Graphs, and Probabilty and Number Theory</td>
+                    </tr>
+                    <tr>
+                        <td>CS202</td>
+                        <td>Logic in Computer Science</td>
+                        <td class="field-center">III</td>
+                        <td>Basics of Verifying and Proving computer algorithms using Logics</td>
+                    </tr>
+                    <tr>
+                        <td>ESO208</td>
+                        <td>Numerical Methods in Engineering</td>
+                        <td class="field-center">III</td>
+                        <td>Bsics methods of Regression, Splines and Function Approximation, along with Multi-variate
+                            Equation
+                            solving
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ESO207</td>
+                        <td>Data Structures and Algorithms</td>
+                        <td class="field-center">IV</td>
+                        <td>Discussion of different data structures and algorithms of Competitive Programming</td>
+                    </tr>
+                    <tr>
+                        <td>CS220</td>
+                        <td>Computer Organization</td>
+                        <td class="field-center">IV</td>
+                        <td>Detailed analysis of Computer Architecture, Assembly Languages and Parallel Processing</td>
+                    </tr>
+                    <tr>
+                        <td>ML101</td>
+                        <td>Course in Machine Learning by Andrew NG</td>
+                        <td class="field-center">Coursera</td>
+                        <td>Brief introduction to topics and algorithms used in machine learning</td>
+                    </tr>
+                    <tr>
+                        <td>MSO201</td>
+                        <td>Probabilty and Statistics</td>
+                        <td class="field-center">IV</td>
+                        <td>A look into Probability and Probabilistic Analysis of different Distributions</td>
+                    </tr>
+                    <tr>
+                        <td>CS330</td>
+                        <td>Operating Systems</td>
+                        <td class="field-center">V</td>
+                        <td>A brief introduction to the design of modern Operating Systems and their working</td>
+                    </tr>
+                    <tr>
+                        <td>CS345</td>
+                        <td>Algorithms II</td>
+                        <td class="field-center">V</td>
+                        <td>Advanced look into algorithms, solving problems using algorithms and analysis of algorithms</td>
+                    </tr>
+                    <tr>
+                        <td>CS340</td>
+                        <td>Theory of Computation</td>
+                        <td class="field-center">V</td>
+                        <td>A brief discussion on language models and introduction to the theory of computational
+                            complexity</td>
+                    </tr>
+                    <tr>
+                        <td>CS771</td>
+                        <td>Introduction to Machine Learning</td>
+                        <td class="field-center">V</td>
+                        <td>Introduction to various techniques in Supervised and Unsupervised Machine Learning and
+                            introduction
+                            to Probabilistic Machine Learning</td>
+                    </tr>
+                    <tr>
+                        <td>CS772</td>
+                        <td>Probabilistic Machine Learning</td>
+                        <td class="field-center">Audit</td>
+                        <td>Probabilistic Analyisis of Various Machine Learning Algorithms and brief introduction to
+                            various
+                            Sampling and Approximation Techniques</td>
+                    </tr>
+                    <tr>
+                        <td>CS345</td>
+                        <td>Compiler Design</td>
+                        <td class="field-center">VI</td>
+                        <td>Introduction to concepts in Compiler Designing and overview of parsing programming
+                            languages</td>
+                    </tr>
+                    <tr>
+                        <td>CS671</td>
+                        <td>Natural Language Processing</td>
+                        <td class="field-center">VI</td>
+                        <td>Introduction to Natural Language Processing. Discussion of various text representations and
+                            learning algorithms for NLP tasks</td>
+                    </tr>
+                    <tr>
+                        <td>CS777</td>
+                        <td>Statistical and Algorithmic Learning Theory</td>
+                        <td class="field-center">VI</td>
+                        <td>Introduction to Statistical Analyisis of Machine Learning algorithms. Discussion of
+                            convergence bounds and complexity classes</td>
+                    </tr>
+                    <tr>
+                        <td>CS772</td>
+                        <td>Probabilistic Modelling and Inference</td>
+                        <td class="field-center">VII</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>CS425</td>
+                        <td>Computer Networks</td>
+                        <td class="field-center">VII</td>
+                        <td></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>CS685</td>
+                        <td>Data Mining</td>
+                        <td class="field-center">VII</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            </tbody>
+            </table>
+
+        </div>
+
+        <div class="footer ">
+            Copyright <script>document.write(new Date().getFullYear())</script> @ Avinash
+        </div>
+
+    </div>
+
+</body>
+
+</html>
