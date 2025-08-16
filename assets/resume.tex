@@ -1,0 +1,379 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1 cm, % seperation between body and page edge from the top
+    bottom=1 cm, % seperation between body and page edge from the bottom
+    left=1 cm, % seperation between body and page edge from the left
+    right=1 cm, % seperation between body and page edge from the right
+    footskip=0.5 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{4,49,108} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Avinash's Resume},
+    pdfauthor={Avinash},
+    pdfcreator={Avinash},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage[default, type1]{sourcesanspro} 
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+    % avoid page braking right after the section title
+    \needspace{4\baselineskip}
+    % make the font size of the section title large and color it with the primary color
+    \fontsize{15 pt}{ 15 pt}\bfseries\color{primaryColor}
+}{
+}{
+}{
+    % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+    % from the end of the title to the end of the body
+    \hspace{0.01 cm} \titlerule[0.8pt] \hspace{0.15cm}\textbf{#1}\hspace{0.15cm} \titlerule[0.8pt]\hspace{-0.1cm}
+}[] % section title formatting
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.5 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{1 cm, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    \begin{header}
+        \fontsize{30 pt}{30 pt}
+        \textbf{Avinash Kumar}
+
+\vspace{0.3 cm}
+
+
+        \fontsize{16 pt}{16 pt}
+        \textbf{Security Engineer III}
+
+        % \vspace{0.2 cm}
+
+        
+        % \text{Graduated from Indian Institute of Technology, Kanpur in 2019}
+
+        % \vspace{0.1 cm}
+        
+        % \text{B.Tech in Computer (MINOR) \& Mechanical (MAJOR)}
+
+        \normalsize
+        \mbox{\hrefWithoutArrow{mailto:cnsadchjs97@gmail.com}{{\faEnvelope[regular]}\hspace*{0.13cm}cnsadchjs97@gmail.com}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:+91-XXXXX}{{\footnotesize\faPhone*}\hspace*{0.13cm}+91 XXXXX}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/abcdtsod}{{\faLinkedinIn}\hspace*{0.13cm}abcdtsod}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://github.com/abcdtsod}{{\faGithub}\hspace*{0.13cm}abcdtsod}}%
+    \end{header}
+
+    \vspace{0.2 cm}
+
+
+
+\section{Education}
+
+        
+        \begin{onecolentry}
+            Masters in \textbf{CyberSecurity} from \textbf{EC-Council} University, along with \textbf{CEH, CND, CHFI, ECIH and EISM} certifications
+
+            \vspace{0.15 cm}
+            
+            % Certified in \textbf{CompTIA CyberSecurity Track} which includes Security+, Pentest+, CySA+ and CASP+ certifications by CompTIA
+            Graduated from \textbf{Indian Institute of Technology, Kanpur} in 2019, with
+            Minor in \textbf{Computer} and Major in Mechanical Engineering
+
+            \vspace{0.15 cm}
+            
+            
+            % \begin{highlights}
+            %     \item GPA: 3.9/4.0 (\href{https://example.com}{a link to somewhere})
+            %     \item \textbf{Coursework:} Computer Architecture, Comparison of Learning Algorithms, Computational Theory
+            % \end{highlights}
+
+
+            \textbf{About Me:} Demonstrates strong problem-solving abilities, strategic critical thinking, and exceptional attention to detail, \\ complemented by a mindset of continuous learning and the ability to adapt quickly to evolving challenges
+
+        \end{onecolentry}
+
+    
+    \section{Experience}
+
+
+
+        
+        \begin{onecolentry}
+            \fontsize{11 pt}{11 pt}
+            \textbf{Avalara, Pune} \hfill \textit{Sep 2024 - Present}
+
+            \fontsize{11 pt}{11 pt}
+            \textbf{Software Engineer III}
+            \begin{highlights}
+                \item Resolved 700+ functional bugs in the codebase \& developed automated Cypress test cases, improving product reliability by 35\%
+                
+                \item	Led Gen-AI initiative, deploying NLP-based bots \& text-to-SQL capabilities using LangGraph \& LangChain, giving 40\% reduction in customer response time and increasing customer satisfaction scores by 25\%
+
+                \item	Performed code pentesting, identifying \& mitigating 15+ high-severity vulnerabilities such as SQL Injection, XSS, \& Broken Auths
+                
+                \item	Remediated 100+ security threats flagged by Checkmarx within 30 days by my own autonomous python script, increasing overall application security posture to 98\% compliance
+
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+        \fontsize{11 pt}{11 pt}
+        \textbf{Samsung Research Institute, Bangalore} \hfill \textit{Mar 2023 - Sep 2024}
+
+            \fontsize{11 pt}{11 pt}
+            \textbf{Software Engineer II}
+            \begin{highlights}
+                \item	Implemented a TPM-based security framework by designing and integrating 8 to 10 REST \& TPM APIs for server-side certificate provisioning \& cryptographic key management, improving secure certificate operations \& system integrity.
+                \item	Enabled encrypted communication by verifying EKCert \& IDBinding with nonce/signature, creating CSRs, and integrating Key \\ Attestation with nonce2 and TPM \& AWS storage, ensuring robust key exchange \& secure data flow.
+                \item	Engineered a critical messaging service to transmit secure communications from Blackboard server to devices, \& reduced build time by 60\% (10 mins → under 4 mins) with added load testing for multi-device connections
+                \item	Added 15-20 APIs that performs connect using token-based authentication along with other operations in Membership service (Service used to connect multiple devices with same SA Account \& share data with proper security)
+                
+                \item	Led Red Team operations on phones \& TVs, identifying \& mitigating 20+ Security gaps, strengthening the product's attack resilience
+                
+                \item	Integrated Trusted Apps (TAs) on 23\% of Androids used globally, securing key communication pathways within TEEs preventing \\ unauthorized access and delivering TEE builds for Qualcomm, TEEgris, \& UniSoc chipsets
+                
+                \item Pioneered virtualization for Android security by building \& testing secure OP-TEE on Android Virtualization Framework (AVF), \\ decreasing threats to applications running on AVF by 30\%
+
+
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        
+        \begin{onecolentry}
+        \fontsize{11 pt}{11 pt}
+        \textbf{PayPal, Bangalore} \hfill \textit{Aug 2021 - Mar 2023}
+
+            \fontsize{11 pt}{11 pt}
+            \textbf{Software Engineer I}
+            \begin{highlights}
+                \item	Conducted comprehensive security tests on the migrated Google Dialog Flow (GDF) architecture, identifying \& mitigating \\ vulnerabilities, threats, \& edge case failures ensuring 99\% secure data handling
+                
+                \item	Ranked in the top 1\% among participants in the cmd+ctrl 2-day hackathon, completing all 48 challenges \& demonstrating strong problem-solving skills in various security scenarios
+                
+                \item	Spearheaded migration of chatbot (IVR \& chat) for 10+ major locales from Watson to GDF, improving customer support efficiency
+                
+                \item	Developed a Neo4j tool for visualizing \& optimizing complex workflows, reducing manual effort by 25\%, streamlining GDF migration
+                
+                \item	Created a new version of Chat-Simulator, improving efficiency by 40\%, integrating a computerized Cypress tool to execute test cases, significantly accelerating the testing process ensuring high reliability in production
+                
+                \item	Reduced costs by 15\% by redesigning GDF architecture \& integrating in-house NLP, eliminating reliance on 3rd-party NLP services
+                
+                \item	Built a real-time dashboard on Looker to monitor chatbot traffic, reducing 97.9\% data latency (48 hours to 1 hour), enabling faster decision-making \& improved performance tracking
+                
+                \item	Improving legacy WSDL \& modern RESTful system integration \& scalability by 35\% by leveraging TFIDF algorithms to parse raw WSDL text \& predict CRUD operation types which then formulate REST APIs via Spring Boot
+                
+
+
+
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.6 cm}
+
+
+        \begin{onecolentry}
+        \fontsize{11 pt}{11 pt}
+        \textbf{EXL Services, Gurgaon} \hfill \textit{Sep 2019 - Aug 2021}
+
+            \fontsize{11 pt}{11 pt}
+            \textbf{Data Analyst II}% - Backend \& Security}
+            \begin{highlights}
+                \item	Applied advanced Entropy Balancing in R \& Python, to test \& validate hypotheses, making data-driven decision for clients to create 10\% more impact on sales \& client conversion
+                \item	Developed scalable web scraper using Selenium to systematize data scraping, saving clients 50+ hours per week in manual effort
+                
+                \item	Utilized text mining \& sentiment analysis to tailor customer-specific communications, resulting in a 20\% increase in response rates %and improved customer satisfaction ---TODO
+                
+                \item	Adopted analytics on marketing campaigns, leading to a 17\% increase in client conversions through data-driven optimizations
+                
+                \item	Developed \& automated an encryption tool to reduce data breaches by 25\% using VBA to securely store \& manage client’s personal information, ensuring compliance
+                
+                %\item Enhanced data storage security protocols by integrating advanced encryption algorithms, resulting in faster \& more secure storage of sensitive customer data for clients --- TODO
+
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    \section{Technical Skills}
+
+    \begin{tabularx}{\linewidth}{lX}    
+    \textbf{Gen-AI Frameworks} &
+    Prompt Engineering on AI models, Automation using N8N, LangGraphs and LangChain \\ [10 pt]
+    
+    % \addlinespace[0.2cm]
+    % \vspace{0.1 cm}
+
+    \textbf{Security Domain} &
+    Certified in \hrefWithoutArrow{https://github.com/abcdtsod/CompTIA}{CompTIA CyberSecurity} Track along with Bug-Bounty hunting \\
+    & Rated Hacker level on \hrefWithoutArrow{https://app.hackthebox.com/profile/176288}{HackTheBox}, PortSwigger, \hrefWithoutArrow{https://tryhackme.com/api/v2/badges/public-profile?userPublicId=176288}{TryHackMe} and HackerOne \\
+    & \textbf{Pentesting Tools:} Jadx, BurpSuite-Pro, Frida, IDA-Pro, etc. \\ [10 pt]
+    
+    % \addlinespace[0.2cm]
+  % \vspace{0.1 cm}
+  
+    \textbf{Backend Domain} &
+    ReactJS \& NodeJS, Context APIs, MERN stack, Postgres, Elasticsearch, Redis \\
+    & Certified in AWS (EC2, S3, CI/CD), Distributed Systems \& blockchain development on RUST \\ 
+    & \textbf{Tools:} GitHub, Git, ELK, Load Testing, Artemis, MQTT, Kafka, Kubernetes, Microservices \\ [10 pt]
+
+    \textbf{Competitive Programming} &
+    Rated 1761 (in Advanced Data Structures) on platforms like Codeforces \& CodeChef \\ [10 pt]
+
+    
+    \textbf{Language} &
+    RUST, C++ / C / C\#, Python, Java \& SpringBoot, SQL, Android / Windows / Kali-Linux \\ 
+\end{tabularx}
+
+
+    \vspace{0.4 cm}
+    
+    
+    \hspace{0.1cm}\color{primaryColor}\titlerule[0.8pt]
+
+\end{document}
