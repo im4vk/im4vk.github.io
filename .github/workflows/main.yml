@@ -1,0 +1,58 @@
+name: Compile LaTeX Resume
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'assets/resume.tex'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'assets/resume.tex'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  compile-latex:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Install LaTeX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+    
+    - name: Compile LaTeX to PDF
+      run: |
+        cd assets
+        pdflatex -interaction=nonstopmode resume.tex
+        # Run twice to resolve references
+        pdflatex -interaction=nonstopmode resume.tex
+    
+    - name: Check if PDF was created
+      run: |
+        if [ -f assets/resume.pdf ]; then
+          echo "✅ PDF compilation successful"
+          ls -la assets/resume.pdf
+        else
+          echo "❌ PDF compilation failed"
+          exit 1
+        fi
+    
+    - name: Commit and push PDF
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add assets/resume.pdf
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-compile LaTeX resume to PDF [skip ci]"
+          git push
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
