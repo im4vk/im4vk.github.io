@@ -22,7 +22,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         fetch-depth: 0
     
     - name: Install LaTeX
@@ -48,10 +48,15 @@ jobs:
         fi
     
     - name: Commit and push PDF
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "Auto-compile LaTeX resume to PDF [skip ci]"
-        file_pattern: "assets/resume.pdf"
-        commit_user_name: "github-actions[bot]"
-        commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-        commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+      run: |
+        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+        git config --local user.name "${{ github.actor }}"
+        git add assets/resume.pdf
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-compile LaTeX resume to PDF [skip ci]"
+          git push origin ${{ github.ref_name }}
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
