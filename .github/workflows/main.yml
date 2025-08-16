@@ -11,6 +11,9 @@ on:
       - 'assets/resume.tex'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write  # Allow the action to commit files back to the repo
+
 jobs:
   compile-latex:
     runs-on: ubuntu-latest
