@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avinash Kumar · Security Researcher</title>
+<link rel="icon" type="image/png" href="assets/avatar.png">
+<meta name="description" content="Software engineer and security researcher. Projects, skills and a weekly security briefing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdfcf8; --grid:rgba(30,40,40,.055); --ink:#1c211f; --mute:#5d625f;
+  --teal:#2a6161; --orange:#e8832a; --line:#d9d8d1; color-scheme:light;
+  --display:"Space Mono",ui-monospace,Menlo,monospace;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --serif:"Crimson Pro",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#161a19;--grid:rgba(255,255,255,.04);--ink:#ece9df;--mute:#a0a59f;--teal:#7fc4bd;--orange:#f0954a;--line:#2f3634;color-scheme:dark}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--ink);font:400 1.2rem/1.55 var(--serif);
+  background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+a{color:var(--teal);text-underline-offset:3px}
+a:hover{color:var(--orange)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:2px}
+
+/* header */
+.top{max-width:1120px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(18px,4vw,40px) 0}
+.brand{font:400 clamp(1.6rem,3.4vw,2.2rem)/1.1 var(--display);margin:0 0 8px;display:flex;gap:10px;align-items:baseline;animation:rise .7s ease-out both}
+.tagline{margin:0 0 clamp(20px,4vw,36px);font:400 .9rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);animation:rise .7s ease-out .15s both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.top nav{display:flex;flex-wrap:wrap;gap:8px clamp(20px,3.6vw,44px);padding-bottom:18px;border-bottom:1px solid var(--line);font:400 1.1rem var(--mono)}
+.top nav a{text-decoration:none}
+.top nav a[aria-current=page]{font-weight:500;text-decoration:underline;text-decoration-thickness:2px}
+
+/* hero: text left, avatar right */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,5vw,56px);align-items:center;margin-bottom:clamp(36px,6vw,64px)}
+.hero .bio{margin:0}
+.avatar{width:clamp(130px,20vw,190px);height:auto;aspect-ratio:1;object-fit:cover;object-position:50% 12%;border-radius:50%;border:3px solid var(--teal);background:var(--line);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--orange);animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+@media (max-width:640px){.hero{grid-template-columns:1fr}.avatar{grid-row:1;justify-self:start}}
+
+/* content column */
+main{max-width:920px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(18px,4vw,40px) 48px}
+h1{font:700 clamp(1.9rem,5.4vw,3.1rem)/1.1 var(--display);letter-spacing:.02em;text-transform:uppercase;margin:0 0 clamp(18px,3vw,30px)}
+.rule{border:0;height:5px;background:var(--orange);margin:0 0 28px}
+.bio{margin:0 0 clamp(36px,6vw,64px);max-width:60ch;color:var(--mute)}
+h2{font:700 1.2rem/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:0 0 22px}
+section{margin:0 0 clamp(40px,6vw,64px)}
+
+/* archive controls */
+.bar{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;margin:-6px 0 12px}
+.tabs{display:flex;gap:6px 20px;flex-wrap:wrap}
+.tabs button{all:unset;cursor:pointer;font:400 .95rem var(--mono);color:var(--mute);padding:4px 0;border-bottom:2px solid transparent}
+.tabs button:hover{color:var(--teal)}
+.tabs button[aria-pressed=true]{color:var(--teal);border-color:var(--orange)}
+.tabs button:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+#q{font:400 .9rem var(--mono);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:0;padding:7px 10px;width:min(100%,220px)}
+#q::placeholder{color:var(--mute)}
+#status{font:400 .9rem var(--mono);color:var(--mute);margin:10px 0}
+#status button{font:inherit;background:none;border:0;padding:0;color:var(--teal);text-decoration:underline;cursor:pointer}
+
+/* arrow-bullet lists (posts, projects, videos) */
+.posts{list-style:none;margin:0;padding:0}
+.post{position:relative;padding:0 0 28px 36px}
+.post::before{content:"\21AA";position:absolute;left:0;top:-.1em;color:var(--orange);font:700 1.5rem/1.4 var(--mono)}
+.post h3{margin:0;font:500 1.35rem/1.35 var(--serif)}
+.post h3 a{text-decoration:none}
+.post h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.post p{margin:6px 0 0;font:400 1.02rem/1.45 var(--serif);color:var(--mute)}
+.post .when{display:block;margin-top:8px;font:400 .9rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.post .when a{color:inherit}
+.post .when a:hover{color:var(--orange)}
+.post img{display:block;width:140px;aspect-ratio:16/9;object-fit:cover;background:var(--line);margin-top:8px}
+.skel .post::before{color:var(--line)}
+.skel .bar1,.skel .bar2{height:.9rem;background:var(--line);animation:p 1.2s ease-in-out infinite alternate}
+.skel .bar1{width:70%;margin-bottom:10px}.skel .bar2{width:35%}
+@keyframes p{to{opacity:.4}}
+
+/* certifications */
+.certs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px}
+.cert{border:3px solid var(--teal);padding:18px 20px;background:color-mix(in srgb,var(--bg) 85%,transparent)}
+.cert a{display:block;color:inherit;text-decoration:none}
+.cert b{display:block;font:700 1.6rem/1.1 var(--display);letter-spacing:.04em}
+.cert span{display:block;margin-top:6px;font:400 1rem/1.3 var(--serif);color:var(--mute)}
+.cert a:hover b{color:var(--orange)}
+.sep{color:var(--mute)}
+
+/* skills */
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{font:400 .95rem var(--mono);color:var(--teal);border:1px solid var(--teal);padding:4px 12px}
+.chips li small{color:var(--mute);margin-left:6px;font-size:.8rem}
+
+/* briefing */
+.range{font:400 .95rem var(--mono);letter-spacing:.04em;color:var(--mute);margin:-8px 0 28px}
+.tag{display:inline-block;font:700 .8rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--orange);padding:3px 9px}
+.lead{border:3px solid var(--teal);padding:26px clamp(18px,3.5vw,38px) 24px;margin:0 0 clamp(36px,6vw,56px);background:color-mix(in srgb,var(--bg) 85%,transparent)}
+.lead h3{margin:14px 0 8px;font:700 clamp(1.4rem,3.4vw,1.9rem)/1.2 var(--display)}
+.lead h3 a{color:var(--ink);text-decoration:none}
+.lead h3 a:hover{color:var(--orange)}
+.lead .when{font:400 .9rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.brief{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 clamp(24px,4vw,56px)}
+.brief h2{display:flex;align-items:center;gap:10px}
+.brief .post h3{font-size:1.2rem}
+.note{font:400 .9rem var(--mono);color:var(--mute)}
+details#archive{margin-top:8px}
+details#archive summary{display:flex;align-items:center;gap:12px;cursor:pointer;list-style:none;padding:12px 16px;border:1px solid var(--line);font:400 .95rem var(--mono);color:var(--ink)}
+details#archive summary::-webkit-details-marker{display:none}
+details#archive summary::after{content:"show \25BE";margin-left:auto;color:var(--teal);white-space:nowrap}
+details#archive[open] summary::after{content:"hide \25B4"}
+details#archive[open] summary{margin-bottom:22px}
+details#archive summary:hover{border-color:var(--teal)}
+details#archive summary:hover::after{color:var(--orange)}
+details#archive summary:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+/* pagination */
+.pager{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 0 36px;font:400 .95rem var(--mono)}
+.pager button{all:unset;cursor:pointer;min-width:2.2rem;padding:5px 8px;text-align:center;border:1px solid var(--line);color:var(--teal)}
+.pager button:hover:not(:disabled){border-color:var(--orange);color:var(--orange)}
+.pager button[aria-current=page]{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+.pager button:disabled{opacity:.4;cursor:default}
+.pager button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.pager .count{margin-left:auto;color:var(--mute);font-size:.85rem}
+@media (max-width:560px){.pager{margin-left:0}.pager .count{margin-left:0;width:100%}}
+
+/* contact box */
+.box{position:relative;min-inline-size:0;margin-inline:0;border:3px solid var(--teal);padding:36px clamp(20px,4vw,50px) 14px;background:color-mix(in srgb,var(--bg) 85%,transparent)}
+.box legend{position:absolute;top:-.85rem;left:clamp(14px,3vw,40px);padding:0 12px;background:var(--bg);font:700 .95rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.box p{margin:0 0 18px}
+.box ul{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:10px;font:400 1rem var(--mono)}
+.box li small{margin-left:14px;color:var(--mute);font-size:.85rem}
+
+footer{max-width:920px;margin:0 auto;padding:20px clamp(18px,4vw,40px) 40px;font:400 .85rem/1.5 var(--mono);color:var(--mute);border-top:1px solid var(--line)}
+footer p{margin:0 0 8px}
+footer .copy{color:var(--ink)}
+@media (max-width:560px){body{font-size:1.1rem}.post{padding-left:30px}}
+@media (prefers-reduced-motion:reduce){.brand,.tagline,.avatar,.skel .bar1,.skel .bar2{animation:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <p class="brand"><i aria-hidden="true">&sect;</i><span id="brand"></span></p>
+  <p class="tagline" id="tagline"></p>
+  <nav id="nav" aria-label="Main"></nav>
+</header>
+
+<main id="home-view">
+  <div class="hero">
+    <div>
+      <h1 id="hello"></h1>
+      <hr class="rule">
+      <p class="bio" id="bio"></p>
+    </div>
+    <img class="avatar" src="assets/avatar.png" alt="Illustrated avatar" width="190" height="190" onerror="this.hidden=true">
+  </div>
+
+  <section id="focus-box" hidden><h2>What I work on</h2><ul class="posts" id="focus"></ul></section>
+  <section id="certs-box" hidden><h2>Certifications</h2><ul class="certs" id="certs"></ul></section>
+  <section id="practice-box" hidden><h2>Security practice</h2><ul class="posts" id="practice"></ul></section>
+  <section id="now-box" hidden><h2>Now</h2><p id="now"></p></section>
+  <section id="skills-box" hidden><h2>Skills</h2><ul class="chips" id="skills"></ul></section>
+  <section id="repos-box" hidden><h2>Projects</h2><ul class="posts" id="repos"></ul></section>
+</main>
+
+<main id="contact-view" hidden>
+  <h1>Say hello!</h1>
+  <hr class="rule">
+  <fieldset class="box">
+    <legend>Find me</legend>
+    <p id="contact-line"></p>
+    <ul id="links"></ul>
+  </fieldset>
+</main>
+
+<main id="blogs-view" hidden>
+  <h1 id="blogs-title">This week in security</h1>
+  <hr class="rule">
+  <p class="range" id="range">&nbsp;</p>
+  <div id="lead"></div>
+  <div class="brief" id="brief"><p class="note">Loading the briefing&hellip;</p></div>
+
+  <details id="archive">
+    <summary><span id="archive-title">Browse all posts</span></summary>
+    <section id="archive-list">
+      <div class="bar">
+        <div class="tabs" id="tabs"></div>
+        <input id="q" type="search" placeholder="search titles or sources" aria-label="Search titles or sources">
+      </div>
+      <p id="status" role="status" aria-live="polite"></p>
+      <ol class="posts" id="feed"></ol>
+      <nav class="pager" id="pager" aria-label="Pagination" hidden></nav>
+    </section>
+  </details>
+</main>
+
+<footer>
+  <p class="copy">&copy; <span id="year"></span> <span id="owner"></span>. All rights reserved.</p>
+  <p>Original content on this site is mine. Headlines and links on the Blogs page belong to their respective publishers and link to the original sites. Hacker News data comes from the Algolia HN API.</p>
+</footer>
+
+<script>
+/* ---------- Edit this part ---------- */
+const CONFIG = {
+  name: "Avinash Kumar",
+  firstName: "Avinash",                 // used in the heading: HEY, I'M <FIRST NAME>!
+  tagline: "Security Researcher \u2022 Cybersecurity Expert",   // shown under your name and in the browser tab
+  bio: "Software engineer by day, security researcher by night.",
+  focus: [                              // short list of topics; empty list hides the block
+    "Penetration testing",
+    "Security research and vulnerability analysis",
+    "Cybersecurity tools and solutions"
+  ],
+  certifications: [                     // abbreviation, full name, optional link
+    { abbr: "OSCP",    name: "Offensive Security Certified Professional" },
+    { abbr: "CEH",     name: "Certified Ethical Hacker" },
+    { abbr: "CompTIA", name: "CyberSecurity track", url: "https://github.com/im4vk/CompTIA" }
+  ],
+  practice: [                           // title plus optional links shown underneath
+    { title: "Bug-bounty hunting" },
+    { title: "Rated Hacker level on", links: [
+      { label: "HackTheBox",  url: "https://profile.hackthebox.com/profile/01a1c62d-626b-7309-9655-f3968f161052?utm_medium=copy_url" },
+      { label: "PortSwigger" },
+      { label: "TryHackMe",   url: "https://tryhackme.com/api/v2/badges/public-profile?userPublicId=327449" },
+      { label: "HackerOne" }
+    ] }
+  ],
+  now: "",                              // empty string hides the block
+  resumeUrl: "",                        // e.g. "resume.pdf"; adds a "resume" link in the nav and contact page
+  email: "",                            // optional; leave empty to keep an email address off the site
+  emailLink: "",                        // e.g. "mailto:name@example.com"
+  githubUser: "im4vk",                  // projects and skills are read live from this public profile
+  links: [
+    { label: "github",   url: "https://github.com/im4vk" },
+    { label: "linkedin", url: "https://www.linkedin.com/in/im4vk" },
+    { label: "youtube",  url: "https://www.youtube.com/channel/UC8fCVGCeJCFCEQB0luCm4hA" }
+  ],
+  hnSecurityQuery: "security",          // what the "HN security" tab searches for
+  hnSecurityMinPoints: 15
+};
+/* ------------------------------------ */
+
+const DAY = 864e5, WINDOW_DAYS = 30;   // blogs and HN stories older than this are hidden
+const $ = id => document.getElementById(id);
+const safe = u => { try { const p = new URL(u, location.href).protocol; return ['http:','https:','mailto:'].includes(p) ? u : '#'; } catch { return '#'; } };
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+const hnItem = id => 'https://news.ycombinator.com/item?id=' + id;
+const el = (t, props = {}, ...kids) => { const n = document.createElement(t); Object.assign(n, props); n.append(...kids); return n; };
+const monthYear = ms => new Date(ms).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+// Glitches the browser-tab title in short bursts, forever: 8 quick flickers, then a pause, then again.
+const GLITCH_PAUSE = 3000;   // ms of calm between bursts
+let glitchTimer;
+function setTitle(text) {
+  clearTimeout(glitchTimer);
+  document.title = text;
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+  const flicker = n => {
+    if (n >= 8) { document.title = text; glitchTimer = setTimeout(() => flicker(0), GLITCH_PAUSE); return; }
+    document.title = n % 2 === 0
+      ? [...text].map(c => Math.random() < 0.3 ? chars[Math.floor(Math.random() * chars.length)] : c).join('')
+      : text;
+    glitchTimer = setTimeout(() => flicker(n + 1), 150);
+  };
+  flicker(0);
+}
+const loadFeeds = () => jget('feeds.json?' + Math.floor(Date.now() / 6e5));
+const jget = async u => { const r = await fetch(u); if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); };
+const cached = (key, ttl, fn) => async () => {
+  try { const v = JSON.parse(localStorage.getItem(key)); if (v && Date.now() - v.t < ttl) return v.d; } catch {}
+  const d = await fn();
+  try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), d })); } catch {}
+  return d;
+};
+const fromHN = h => ({
+  title: h.title, url: h.url || hnItem(h.objectID), source: h.url ? host(h.url) : 'news.ycombinator.com',
+  when: h.created_at_i * 1000, points: h.points, comments: h.num_comments, discuss: hnItem(h.objectID)
+});
+
+const SOURCES = {
+  blogs: { label: 'all feeds', load: async () => {
+    const j = await loadFeeds();
+    return (j.items || []).map(i => ({ title: i.title, url: i.url, source: i.source, kind: i.kind, when: Date.parse(i.date) }))
+      .filter(i => i.when > Date.now() - WINDOW_DAYS * DAY);
+  } },
+  sec: { label: 'hacker news', load: cached('hn:sec', 10 * 60e3, async () =>
+    (await jget('https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=100&query=' + encodeURIComponent(CONFIG.hnSecurityQuery) +
+      '&numericFilters=' + encodeURIComponent('points>=' + CONFIG.hnSecurityMinPoints + ',created_at_i>' + Math.floor((Date.now() - WINDOW_DAYS * DAY) / 1000)))).hits.map(fromHN)) }
+};
+
+let current = 'blogs', loaded = null, data = [], token = 0;
+
+function renderAbout() {
+  $('brand').textContent = CONFIG.name;
+  $('tagline').textContent = CONFIG.tagline;
+  $('owner').textContent = CONFIG.name; $('year').textContent = new Date().getFullYear();
+  $('hello').textContent = "Hey, I'm " + CONFIG.firstName + '!';
+  $('bio').textContent = CONFIG.bio;
+  for (const t of CONFIG.focus) $('focus').append(el('li', { className: 'post' }, el('h3', { textContent: t })));
+  $('focus-box').hidden = !CONFIG.focus.length;
+  for (const c of CONFIG.certifications) {
+    const inner = [el('b', { textContent: c.abbr }), el('span', { textContent: c.name })];
+    $('certs').append(el('li', { className: 'cert' }, c.url ? el('a', { href: safe(c.url), rel: 'noopener' }, ...inner) : el('div', {}, ...inner)));
+  }
+  $('certs-box').hidden = !CONFIG.certifications.length;
+  for (const t of CONFIG.practice) {
+    const links = (t.links || []).flatMap((l, i) => [...(i ? [el('span', { className: 'sep', textContent: ' \u00b7 ' })] : []), l.url ? el('a', { href: safe(l.url), rel: 'noopener', textContent: l.label }) : l.label]);
+    $('practice').append(el('li', { className: 'post' }, el('h3', { textContent: t.title }), ...(links.length ? [el('p', {}, ...links)] : [])));
+  }
+  $('practice-box').hidden = !CONFIG.practice.length;
+  $('now').textContent = CONFIG.now; $('now-box').hidden = !CONFIG.now;
+
+  const links = [...(CONFIG.resumeUrl ? [{ label: 'resume', url: CONFIG.resumeUrl }] : []), ...CONFIG.links];
+  const nav = $('nav');
+  const pageLink = r => { const a = el('a', { href: '#' + r, textContent: r }); a.dataset.route = r; return a; };
+  nav.append(pageLink('home'), pageLink('blogs'), ...links.map(l => el('a', { href: safe(l.url), textContent: l.label, rel: 'me noopener' })), pageLink('contact'));
+
+  if (CONFIG.email) $('contact-line').append('Email me at ', el('a', { href: safe(CONFIG.emailLink), textContent: CONFIG.email }), ', or find me here.');
+  else $('contact-line').textContent = 'Message me on any of these. I reply to everyone.';
+  for (const l of links) {
+    const path = host(l.url) + new URL(l.url, location.href).pathname.replace(/\/$/, '');
+    $('links').append(el('li', {}, el('a', { href: safe(l.url), textContent: l.label, rel: 'me noopener' }), el('small', { textContent: path })));
+  }
+}
+
+async function renderGitHub() {
+  const u = CONFIG.githubUser;
+  if (!u || u.startsWith('your-')) return;
+  try {
+    const r = await jget('https://api.github.com/users/' + encodeURIComponent(u) + '/repos?sort=pushed&per_page=100&type=owner');
+    const own = r.filter(x => !x.fork), repos = own.slice(0, 5);
+    const langs = {};
+    for (const x of own) if (x.language) langs[x.language] = (langs[x.language] || 0) + 1;
+    for (const [name, n] of Object.entries(langs).sort((a, b) => b[1] - a[1]).slice(0, 12)) $('skills').append(el('li', {}, name, el('small', { textContent: n + (n === 1 ? ' repo' : ' repos') })));
+    $('skills-box').hidden = !Object.keys(langs).length;
+    for (const x of repos) {
+      $('repos').append(el('li', { className: 'post' },
+        el('h3', {}, el('a', { href: x.html_url, textContent: x.name, rel: 'noopener' })),
+        ...(x.description ? [el('p', { textContent: x.description })] : []),
+        el('span', { className: 'when', textContent: (x.stargazers_count ? x.stargazers_count + ' stars · ' : '') + 'updated ' + monthYear(Date.parse(x.pushed_at)) })));
+    }
+    $('repos-box').hidden = !repos.length;
+  } catch { /* GitHub API rate limit or offline: the page works without it */ }
+}
+
+const ago = ms => {
+  const d = Math.floor((Date.now() - ms) / DAY);
+  if (d < 1) { const h = Math.floor((Date.now() - ms) / 36e5); return h < 1 ? 'just now' : h + 'h ago'; }
+  return d === 1 ? 'yesterday' : d + ' days ago';
+};
+const HOT = /zero[- ]day|0-day|actively exploited|under (active )?attack|exploited in the wild|critical|ransomware|breach|CVSS 10|remote code|RCE|stolen|backdoor|supply[- ]chain/i;
+const EXPLOITED = /actively exploited|exploited in the wild|zero[- ]day|under (active )?attack|known exploited/i;
+const GROUPS = [
+  { k: 'exploited', title: 'Being exploited' },
+  { k: 'research',  title: 'Research & analysis' },
+  { k: 'news',      title: 'News' },
+];
+let briefDone = false;
+
+const postLi = i => {
+  const bits = [i.source, ago(i.when)];
+  if (i.points != null) bits.push(i.points + ' points');
+  const sub = el('span', { className: 'when', textContent: bits.join(' \u00b7 ') });
+  if (i.discuss) sub.append(' \u00b7 ', el('a', { href: i.discuss, rel: 'noopener', textContent: (i.comments || 0) + ' comments' }));
+  return el('li', { className: 'post' }, el('h3', {}, el('a', { href: safe(i.url), rel: 'noopener', textContent: i.title })), sub);
+};
+
+async function loadBrief() {
+  if (briefDone) return; briefDone = true;
+  const [b, h] = await Promise.allSettled([SOURCES.blogs.load(), SOURCES.sec.load()]);
+  const all = b.status === 'fulfilled' ? b.value : [];
+  const hn = h.status === 'fulfilled' ? h.value : [];
+  const box = $('brief'); box.replaceChildren();
+  if (!all.length && !hn.length) { briefDone = false; box.append(el('p', { className: 'note', textContent: 'Could not load the briefing. If you are previewing locally, serve the folder with a local web server.' })); return; }
+
+  const week = all.filter(i => i.when > Date.now() - 7 * DAY);
+  const useWeek = week.length >= 8, pool = (useWeek ? week : all).sort((a, c) => c.when - a.when);
+  const days = useWeek ? 7 : WINDOW_DAYS, from = new Date(Date.now() - days * DAY), fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  $('blogs-title').textContent = useWeek ? 'This week in security' : 'This month in security';
+  $('range').textContent = fmt(from) + ' \u2013 ' + fmt(new Date()) + ' \u00b7 ' + (useWeek ? week.length : all.length) + ' posts from ' + new Set(all.map(i => i.source)).size + ' sources';
+
+  const score = i => (HOT.test(i.title) ? 3 : 0) + Math.max(0, 2 - (Date.now() - i.when) / DAY / 3);
+  const lead = pool.filter(i => i.kind !== 'exploited').sort((a, c) => score(c) - score(a))[0];
+  if (lead) $('lead').append(el('article', { className: 'lead' }, el('span', { className: 'tag', textContent: 'Lead story' }),
+    el('h3', {}, el('a', { href: safe(lead.url), rel: 'noopener', textContent: lead.title })),
+    el('span', { className: 'when', textContent: lead.source + ' \u00b7 ' + ago(lead.when) })));
+
+  const kindOf = i => i.kind === 'exploited' || EXPLOITED.test(i.title) ? 'exploited' : (i.kind || 'news');
+  for (const g of GROUPS) {
+    const rows = pool.filter(i => i !== lead && kindOf(i) === g.k).slice(0, 4);
+    if (rows.length) box.append(el('section', {}, el('h2', {}, g.title), el('ul', { className: 'posts' }, ...rows.map(postLi))));
+  }
+  const talk = hn.filter(i => i.when > Date.now() - days * DAY).sort((a, c) => (c.points || 0) - (a.points || 0)).slice(0, 4);
+  if (talk.length) box.append(el('section', {}, el('h2', {}, 'Hacker News is discussing'), el('ul', { className: 'posts' }, ...talk.map(postLi))));
+  $('archive-title').textContent = 'Browse all ' + all.length + ' posts';
+}
+
+function openArchive() { $('archive').open = true; if (loaded !== current) show(current); }
+
+const PAGE_SIZE = 8;
+let page = 1;
+
+function draw(resetPage) {
+  if (resetPage === true) page = 1;
+  const terms = $('q').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const rows = data.filter(i => { const hay = (i.title + ' ' + i.source).toLowerCase(); return terms.every(t => hay.includes(t)); });
+  const pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  page = Math.min(Math.max(1, page), pages);
+  const ol = $('feed'); ol.replaceChildren();
+  for (const i of rows.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)) {
+    const bits = [i.source];
+    if (i.points != null) bits.push(i.points + ' points');
+    const sub = el('p', { textContent: bits.join(' · ') });
+    const when = el('span', { className: 'when' }, monthYear(i.when));
+    if (i.discuss) when.append(' · ', el('a', { href: i.discuss, rel: 'noopener', textContent: (i.comments || 0) + ' comments' }));
+    ol.append(el('li', { className: 'post' },
+      el('h3', {}, el('a', { href: safe(i.url), rel: 'noopener', textContent: i.title })), sub, when));
+  }
+  drawPager(rows.length, pages);
+  if (data.length && !rows.length) setStatus('Nothing matches "' + $('q').value.trim() + '".');
+  else if (data.length && terms.length) setStatus(rows.length + ' result' + (rows.length === 1 ? '' : 's') + ' for "' + $('q').value.trim() + '"');
+  else if (data.length) setStatus('');
+}
+
+function drawPager(total, pages) {
+  const nav = $('pager'); nav.replaceChildren();
+  nav.hidden = pages <= 1;
+  if (pages <= 1) return;
+  const go = n => { page = n; draw(); $('archive').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' }); };
+  const btn = (label, n, opts = {}) => el('button', { type: 'button', textContent: label, disabled: !!opts.disabled, onclick: () => go(n), ariaLabel: opts.aria, ariaCurrent: opts.current ? 'page' : null });
+  nav.append(btn('\u2190 prev', page - 1, { disabled: page === 1, aria: 'Previous page' }));
+  const nums = new Set([1, pages, page - 1, page, page + 1]);
+  let last = 0;
+  for (const n of [...nums].filter(n => n >= 1 && n <= pages).sort((a, b) => a - b)) {
+    if (n - last > 1) nav.append(el('span', { textContent: '\u2026' }));
+    nav.append(btn(String(n), n, { current: n === page, aria: 'Page ' + n }));
+    last = n;
+  }
+  nav.append(btn('next \u2192', page + 1, { disabled: page === pages, aria: 'Next page' }));
+  nav.append(el('span', { className: 'count', textContent: ((page - 1) * PAGE_SIZE + 1) + '\u2013' + Math.min(page * PAGE_SIZE, total) + ' of ' + total }));
+}
+
+const setStatus = (msg, retry) => {
+  const s = $('status'); s.replaceChildren(msg);
+  if (retry) s.append(' ', el('button', { textContent: 'Try again', onclick: retry }));
+};
+
+function skeleton() {
+  const ol = $('feed'); ol.replaceChildren(); ol.className = 'posts skel';
+  for (let i = 0; i < 4; i++) ol.append(el('li', { className: 'post' }, el('div', { className: 'bar1' }), el('div', { className: 'bar2' })));
+}
+
+async function show(key) {
+  current = key; const mine = ++token;
+  for (const b of $('tabs').children) b.setAttribute('aria-pressed', String(b.dataset.k === key));
+  history.replaceState(null, '', '#blogs/' + key); loaded = key;
+  data = []; page = 1; $('pager').hidden = true; setStatus('Loading…'); skeleton();
+  try {
+    const rows = await SOURCES[key].load();
+    if (mine !== token) return;
+    data = rows; $('feed').className = 'posts'; draw();
+    if (!rows.length) setStatus(key === 'blogs'
+      ? 'No blog posts yet. The build creates feeds.json on its first run; start it from the Actions tab.'
+      : 'Nothing to show right now.');
+  } catch {
+    if (mine !== token) return;
+    $('feed').replaceChildren(); $('feed').className = 'posts';
+    setStatus(key === 'blogs' ? 'Could not load feeds.json. If you are previewing locally, serve the folder with a local web server.' : 'Could not load this list.', () => show(key));
+  }
+}
+
+renderAbout();
+for (const [k, s] of Object.entries(SOURCES)) {
+  const b = el('button', { textContent: s.label, type: 'button', onclick: () => show(k) });
+  b.dataset.k = k; $('tabs').append(b);
+}
+$('q').addEventListener('input', () => draw(true));
+const VIEWS = { home: 'home-view', blogs: 'blogs-view', contact: 'contact-view' };
+function route() {
+  const [v0, sub] = location.hash.slice(1).split('/');
+  const v = v0 === 'reading' ? 'blogs' : v0;   // old links keep working
+  const view = VIEWS[v] ? v : 'home';
+  for (const [k, id] of Object.entries(VIEWS)) $(id).hidden = k !== view;
+  for (const a of $('nav').querySelectorAll('a[data-route]')) {
+    if (a.dataset.route === view) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  }
+  setTitle(view === 'home' ? CONFIG.name + ' \u00b7 ' + CONFIG.tagline.split('\u2022')[0].trim() : view[0].toUpperCase() + view.slice(1) + ' \u00b7 ' + CONFIG.name);
+  if (view === 'blogs') { loadBrief(); if (SOURCES[sub]) { current = sub; openArchive(); } }
+  window.scrollTo(0, 0);
+}
+// Clicking the link for the page you are already on just returns to the top.
+$('nav').addEventListener('click', e => {
+  const a = e.target.closest('a[data-route]');
+  if (a && a.getAttribute('aria-current') === 'page') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+});
+addEventListener('hashchange', route);
+$('archive').addEventListener('toggle', () => { if ($('archive').open && loaded === null) show(current); });
+renderGitHub();
+route();
+</script>
+</body>
+</html>

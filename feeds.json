@@ -1,0 +1,411 @@
+{
+ "updated": "2026-11-10T16:15:28.482Z",
+ "items": [
+  {
+   "title": "Trump taps Palantir security chief to run battered US cyber defense agency",
+   "url": "https://www.theregister.com/security/2026/11/10/trump-taps-palantir-security-chief-to-run-battered-us-cyber-defense-agency/5308763",
+   "source": "The Register Security",
+   "date": "2026-11-10T16:15:00.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Attackers Exploit AhsayCBS Flaws to Deploy Sandbox-Evading Python Backdoor",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html",
+   "source": "The Hacker News",
+   "date": "2026-11-10T16:00:55.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Blind Eagle Uses Fake Court Notices to Deliver Remote Access Trojan Across Latin America",
+   "url": "https://thehackernews.com/2026/11/blind-eagle-uses-fake-court-notices-to.html",
+   "source": "The Hacker News",
+   "date": "2026-11-10T15:58:44.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Fireworks AI Breach Widens to Expose Customer Billing Data and Incomplete Model Weights",
+   "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
+   "source": "The Hacker News",
+   "date": "2026-11-10T15:33:59.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Fireworks AI gets burned twice as customer data exposure widens",
+   "url": "https://www.theregister.com/cyber-crime/2026/11/10/fireworks-ai-gets-burned-twice-as-customer-data-exposure-widens/5308722",
+   "source": "The Register Security",
+   "date": "2026-11-10T15:28:00.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Not All That Glitters Is Gold: Tracking CopperDragon’s Sparrow Framework Around the Globe",
+   "url": "https://research.checkpoint.com/2026/not-all-that-glitters-is-gold-tracking-copperdragons-sparrow-framework-around-the-globe/",
+   "source": "Check Point Research",
+   "date": "2026-11-10T14:01:14.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Wiz and ISMAP: Building the Foundation for Japan's Public Sector",
+   "url": "https://www.wiz.io/blog/wiz-and-ismap-for-japan-public-sector",
+   "source": "Wiz Research",
+   "date": "2026-11-10T13:48:36.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Chrome zero-day whack-a-mole continues as 2026 tally hits 8",
+   "url": "https://www.theregister.com/security/2026/11/10/chrome-zero-day-whack-a-mole-continues-as-2026-tally-hits-8/5308732",
+   "source": "The Register Security",
+   "date": "2026-11-10T13:28:00.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Ransomware threat blares from Vanderbilt University computers during cyberattack",
+   "url": "https://www.theregister.com/cyber-crime/2026/11/10/ransomware-threat-blares-from-vanderbilt-university-computers-during-cyberattack/5308687",
+   "source": "The Register Security",
+   "date": "2026-11-10T13:00:00.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "AI Makes Reverse Engineering Mainstream Software & Malware Far Easier",
+   "url": "https://www.darkreading.com/application-security/ai-reverse-engineering-apps",
+   "source": "Dark Reading",
+   "date": "2026-11-10T13:00:00.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Apple Patches Everyting: November 2026 Edition, (Tue, Nov 10th)",
+   "url": "https://isc.sans.edu/diary/rss/33506",
+   "source": "SANS ISC",
+   "date": "2026-11-10T12:48:55.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "Binance Warns of iOS Sandbox Escape That Could Expose Crypto Wallet Keys, No Fix Confirmed",
+   "url": "https://thehackernews.com/2026/11/binance-warns-of-ios-sandbox-escape.html",
+   "source": "The Hacker News",
+   "date": "2026-11-10T12:15:31.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "New OpenSSH Vulnerability",
+   "url": "https://www.schneier.com/blog/archives/2026/11/new-openssh-vulnerability.html",
+   "source": "Schneier on Security",
+   "date": "2026-11-10T12:02:38.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Google DeepMind melds humans and AI agents to vet Signal's secure messaging techniques",
+   "url": "https://www.theregister.com/ai-and-ml/2026/11/10/google-deepmind-melds-humans-and-ai-agents-to-vet-signals-secure-messaging-techniques/5308625",
+   "source": "The Register Security",
+   "date": "2026-11-10T12:00:00.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Beyond the Alert: The Case for Rich Network Data",
+   "url": "https://thehackernews.com/2026/11/beyond-alert-case-for-rich-network-data.html",
+   "source": "The Hacker News",
+   "date": "2026-11-10T11:38:13.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "CISA Announces Enhanced Reporting Form for Cyber Incidents",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/cisa-announces-enhanced-reporting-form-cyber-incidents",
+   "source": "Dark Reading",
+   "date": "2026-11-09T21:38:20.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Microsoft Fixes RCE Bug in Windows Paint After Weeks of Confusion",
+   "url": "https://www.darkreading.com/application-security/microsoft-rce-bug-windows-paint-confusion",
+   "source": "Dark Reading",
+   "date": "2026-11-09T21:12:24.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Vulnerability that lets hackers SSH into Linux devices is under active exploitation",
+   "url": "https://arstechnica.com/security/2026/11/vulnerability-that-lets-hackers-ssh-into-linux-devices-is-under-active-exploitation/",
+   "source": "Ars Technica Security",
+   "date": "2026-11-09T19:41:34.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Attackers Searching for SAP Netweaver Webshells, (Mon, Nov 9th)",
+   "url": "https://isc.sans.edu/diary/rss/33502",
+   "source": "SANS ISC",
+   "date": "2026-11-09T18:18:15.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "Attackers Crash Claude's 'Office Party' Flaw to Run Malicious Code on Linux",
+   "url": "https://www.darkreading.com/endpoint-security/attackers-claude-office-party-flaw-malicious-code-linux",
+   "source": "Dark Reading",
+   "date": "2026-11-09T18:08:30.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Claude Code is accidentally exposing secrets all over GitHub",
+   "url": "https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/",
+   "source": "Ars Technica Security",
+   "date": "2026-11-09T17:24:26.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "PwC's CISO on AI, Robots & What's Next for Security",
+   "url": "https://www.darkreading.com/cybersecurity-operations/pwc-ciso-ai-robots-security",
+   "source": "Dark Reading",
+   "date": "2026-11-09T17:17:23.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "9th November – Threat Intelligence Report",
+   "url": "https://research.checkpoint.com/2026/9th-november-threat-intelligence-report/",
+   "source": "Check Point Research",
+   "date": "2026-11-09T16:15:41.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Trusted by Default: Qubole Cross-Account Access Abused in the Wild",
+   "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild",
+   "source": "Wiz Research",
+   "date": "2026-11-09T14:56:32.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "AI Security",
+   "url": "https://www.schneier.com/blog/archives/2026/11/ai-security.html",
+   "source": "Schneier on Security",
+   "date": "2026-11-09T12:05:39.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+   "url": "https://www.cisa.gov/news-events/alerts/2026/11/09/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+   "source": "CISA Advisories",
+   "date": "2026-11-09T12:00:00.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "Scans for Sshole Vulnerability (CVE-2026-123158), (Sun, Nov 8th)",
+   "url": "https://isc.sans.edu/diary/rss/33498",
+   "source": "SANS ISC",
+   "date": "2026-11-08T15:44:33.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "British soldier ignored order to pull his SIM card, then got blackmailed",
+   "url": "https://arstechnica.com/security/2026/11/british-soldier-ignored-order-to-pull-his-sim-card-then-got-blackmailed/",
+   "source": "Ars Technica Security",
+   "date": "2026-11-07T11:00:34.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Turning Up the Heat: Inside the Attacks on Europe’s Refrigeration Systems",
+   "url": "https://unit42.paloaltonetworks.com/europes-refrigeration-systems-attacks/",
+   "source": "Unit 42",
+   "date": "2026-11-06T21:15:09.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Chainalysis says hackers stole credentials and tokens for all of its customers",
+   "url": "https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers/",
+   "source": "Ars Technica Security",
+   "date": "2026-11-06T20:56:41.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Pinpointing Location of Videos from Background Airplane Sounds",
+   "url": "https://www.schneier.com/blog/archives/2026/11/pinpointing-location-of-videos-from-background-airplane-sounds.html",
+   "source": "Schneier on Security",
+   "date": "2026-11-06T14:57:48.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+   "url": "https://www.cisa.gov/news-events/alerts/2026/11/06/cisa-adds-one-known-exploited-vulnerability-catalog",
+   "source": "CISA Advisories",
+   "date": "2026-11-06T12:00:00.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "After Binance, check what your signing systems can approve",
+   "url": "https://blog.trailofbits.com/2026/11/06/after-binance-check-what-your-signing-systems-can-approve/",
+   "source": "Trail of Bits",
+   "date": "2026-11-06T12:00:00.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Meet *sshole, the vulnerability that lets hackers SSH into Linux devices",
+   "url": "https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password/",
+   "source": "Ars Technica Security",
+   "date": "2026-11-05T23:09:36.000Z",
+   "kind": "news"
+  },
+  {
+   "title": "Hacking on Autopilot: Inside ARTEX Cybercrime Campaigns",
+   "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/",
+   "source": "Check Point Research",
+   "date": "2026-11-05T17:22:06.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Vulnerability Scans for Older Cisco IOS Vulnerability / Opt-Out Headers, (Thu, Nov 5th)",
+   "url": "https://isc.sans.edu/diary/rss/33492",
+   "source": "SANS ISC",
+   "date": "2026-11-05T15:29:08.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "ChatGPT Lockdown Mode Bypass: Phishing, Malware Delivery, and Silent Data Exfiltration",
+   "url": "https://research.checkpoint.com/2026/chatgpt-lockdown-mode-bypass-phishing-malware-delivery-and-silent-data-exfiltration/",
+   "source": "Check Point Research",
+   "date": "2026-11-05T14:00:11.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Post-Quantum Questions to Ask Your Vendors",
+   "url": "https://www.cisa.gov/resources-tools/resources/post-quantum-questions-ask-your-vendors",
+   "source": "CISA Advisories",
+   "date": "2026-11-05T12:00:00.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "US Government Partners Urge Hardening Industrial Refrigeration and Cold Chain Monitoring Systems",
+   "url": "https://www.cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems",
+   "source": "CISA Advisories",
+   "date": "2026-11-05T12:00:00.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "Making HTTP header injection critical with one prompt",
+   "url": "https://portswigger.net/research/making-http-header-injection-critical-with-one-prompt",
+   "source": "PortSwigger Research",
+   "date": "2026-11-04T15:12:29.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "The Classics Return: Vulnerable E-Mail Scripts, (Wed, Nov 4th)",
+   "url": "https://isc.sans.edu/diary/rss/33488",
+   "source": "SANS ISC",
+   "date": "2026-11-04T13:24:13.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+   "url": "https://www.cisa.gov/news-events/alerts/2026/11/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+   "source": "CISA Advisories",
+   "date": "2026-11-04T12:00:00.000Z",
+   "kind": "exploited"
+  },
+  {
+   "title": "Free the Model, Sell the Gateway: Prompt Adware hidden in Jailbreak Bundles",
+   "url": "https://research.checkpoint.com/2026/free-the-model-sell-the-gateway-prompt-adware-hidden-in-jailbreak-bundles/",
+   "source": "Check Point Research",
+   "date": "2026-11-03T13:57:04.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "AIs Hacking the Law",
+   "url": "https://www.schneier.com/blog/archives/2026/11/ais-hacking-the-law.html",
+   "source": "Schneier on Security",
+   "date": "2026-11-03T12:01:00.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "The cryptography behind electronic voting (and why paper ballots are still essential)",
+   "url": "https://blog.trailofbits.com/2026/11/03/the-cryptography-behind-electronic-voting-and-why-paper-ballots-are-still-essential/",
+   "source": "Trail of Bits",
+   "date": "2026-11-03T12:00:00.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Unit 42 Threat Intelligence Highlights - Nov. 2, 2026",
+   "url": "https://unit42.paloaltonetworks.com/u42-threat-intelligence-highlights-oct-2026/",
+   "source": "Unit 42",
+   "date": "2026-11-02T23:00:45.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "From Reactive to Proactive: Empowering SOC Teams with the Wiz Red and Blue Agents",
+   "url": "https://www.wiz.io/blog/soc-alerts-red-and-blue-agents",
+   "source": "Wiz Research",
+   "date": "2026-11-02T13:13:46.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "AI Vulnerability Finding",
+   "url": "https://www.schneier.com/blog/archives/2026/11/ai-vulnerability-finding-2.html",
+   "source": "Schneier on Security",
+   "date": "2026-11-02T12:02:34.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Backporting security fixes at scale with Codex",
+   "url": "https://blog.trailofbits.com/2026/11/02/backporting-security-fixes-at-scale-with-codex/",
+   "source": "Trail of Bits",
+   "date": "2026-11-02T12:00:00.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "“Black October” for AI Developer Platforms",
+   "url": "https://www.wiz.io/blog/black-october-for-ai-developer-platforms",
+   "source": "Wiz Research",
+   "date": "2026-10-30T22:51:44.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619 (Updated October 29)",
+   "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+   "source": "Unit 42",
+   "date": "2026-10-29T18:00:34.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "The Rise of Agentic Attacks: What They Look Like, and Where They're Headed",
+   "url": "https://www.wiz.io/blog/the-rise-of-agentic-attacks",
+   "source": "Wiz Research",
+   "date": "2026-10-29T14:26:22.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Unwrapping Retail Peak Season Cyber Threats",
+   "url": "https://unit42.paloaltonetworks.com/unwrapping-retail-cyber-threats/",
+   "source": "Unit 42",
+   "date": "2026-10-28T18:00:10.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Scalable Vector Grief",
+   "url": "https://portswigger.net/research/scalable-vector-grief",
+   "source": "PortSwigger Research",
+   "date": "2026-10-27T14:29:26.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Fuzzers vs. AI: Comparing Fuzzilli and BigSleep on JavaScript Engines",
+   "url": "https://projectzero.google/2026/10/fuzzing-v-AI.html",
+   "source": "Project Zero",
+   "date": "2026-10-27T07:00:00.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "EMudhra Intermediate CA Certificates Compromised",
+   "url": "https://unit42.paloaltonetworks.com/emudhra-certificate-compromise/",
+   "source": "Unit 42",
+   "date": "2026-10-22T17:15:32.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Your AI agent fixed the bug, but what else did it change?",
+   "url": "https://blog.trailofbits.com/2026/10/21/your-ai-agent-fixed-the-bug-but-what-else-did-it-change/",
+   "source": "Trail of Bits",
+   "date": "2026-10-21T15:00:00.000Z",
+   "kind": "research"
+  },
+  {
+   "title": "Package managers have an integrity problem",
+   "url": "https://blog.trailofbits.com/2026/10/14/package-managers-have-an-integrity-problem/",
+   "source": "Trail of Bits",
+   "date": "2026-10-14T11:00:00.000Z",
+   "kind": "research"
+  }
+ ]
+}
