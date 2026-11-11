@@ -2,7 +2,7 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   schedule:
     - cron: '0 0 1 * *'   # refresh blog feeds once a month (1st day at 00:00 UTC)
   workflow_dispatch:
